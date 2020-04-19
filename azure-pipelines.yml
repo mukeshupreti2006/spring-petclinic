@@ -5,7 +5,13 @@
 
 trigger:
 - master
-
+- task: AzureRmWebAppDeployment@4
+  inputs:
+    ConnectionType: 'AzureRM'
+    azureSubscription: 'connection-to-myapp-rg'
+    appType: 'webApp'
+    WebAppName: 'my-app-name1'
+    packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
 pool:
   vmImage: 'ubuntu-latest'
 
