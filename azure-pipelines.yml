@@ -26,6 +26,6 @@ steps:
     azureSubscription: 'Free Trial(882479e5-ca4a-4fd4-a130-de8c6cf2ab90)'
     appType: 'webAppLinux'
     WebAppName: 'my-app-name1'
-    packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
+    packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.jar'
 
 
