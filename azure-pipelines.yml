@@ -5,13 +5,7 @@
 
 trigger:
 - master
-- task: AzureRmWebAppDeployment@4
-  inputs:
-    ConnectionType: 'AzureRM'
-    azureSubscription: 'connection-to-myapp-rg'
-    appType: 'webApp'
-    WebAppName: 'my-app-name1'
-    packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
+
 pool:
   vmImage: 'ubuntu-latest'
 
@@ -26,3 +20,12 @@ steps:
     publishJUnitResults: true
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     goals: 'spring-javaformat:apply package'
+- task: AzureRmWebAppDeployment@4
+  inputs:
+    ConnectionType: 'AzureRM'
+    azureSubscription: 'Free Trial(882479e5-ca4a-4fd4-a130-de8c6cf2ab90)'
+    appType: 'webAppLinux'
+    WebAppName: 'my-app-name1'
+    packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
+
+
